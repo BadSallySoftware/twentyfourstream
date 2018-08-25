@@ -9,7 +9,7 @@ class DonationsModel{
 
     public function connect()
     {
-        include BASEPATH . "App\\Config\\dbConfig.php";
+        require_once(BASEPATH . "App\\Config\\dbConfig.php");
         $connString = 'mysql:host=' . $dbHost . ';dbname=' . $dbName;
 
         try
@@ -29,7 +29,7 @@ class DonationsModel{
         if(!$this->connect())
         {
             echo $this->error;
-            die;
+            exit();
         }
 
         try{
@@ -61,5 +61,27 @@ class DonationsModel{
         }
 
         $this->disconnect();
+    }
+
+    public function getDonors($min = 0)
+    {
+        require_once(BASEPATH . "App\\Config\\settings.php");
+        if(!$this->connect())
+        {
+            echo $this->error;
+            exit();
+        }
+
+        $sql= "SELECT `name`,`email`,SUM(`amount`) as donated FROM donations
+            WHERE datetime > '$cutOffDate'
+            GROUP BY email
+            ORDER BY donated DESC;";
+
+
+            $donors = $this->connection->query($sql)->fetchAll();
+        
+        
+        return $donors;
+
     }
 }

@@ -1,0 +1,34 @@
+#header{
+    width:100%;
+    height:50px;
+    background: #37415d;
+    position: fixed;
+    top:0;
+}
+
+body{
+    padding-top:100px;
+    background: #58648f;;
+}
+
+.block{
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,0.04);
+    border-radius: 5px;
+    background:white;
+    padding:0px;
+}
+
+a{
+    color:white;
+}
+
+.blockheader{
+    background: #37415d;
+    color: white;
+    padding: 10px;
+}
+
+.blockpadding
+{
+    padding: 10px 30px 30px 30px;
+}

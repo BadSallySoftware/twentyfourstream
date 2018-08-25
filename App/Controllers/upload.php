@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 
-class HomeController extends Controller
+class UploadController extends Controller
 {
     
     public static function index()
@@ -15,9 +15,6 @@ class HomeController extends Controller
 
         if($_SERVER['REQUEST_METHOD'] == "POST")
         {
-
-           // $donations = json_decode(file_get_contents("https://extralife.donordrive.com/api/participants/301630/donations"));
- 
 
            $donations = array();
             
@@ -45,24 +42,10 @@ class HomeController extends Controller
                 );
                 array_push($donations,$donation);
             }
-              
-
-             // for($i = 0; $i < 4; ++$i)
-            // {
-            //     $line = fgets($file);
-            // }
-            // while($line = fgets($file))
-            // {
-            //     $lineArray = explode(",", $line);
             
-                
-        
 
             include BASEPATH . "App\\Models\\donations.php";
-            // echo "<pre>";
-            // var_dump($donations);
-            // echo "</pre>";
-            // die;
+
             $donModel = new DonationsModel();
 
             if(!$donModel->updateDonations($donations))
@@ -71,19 +54,8 @@ class HomeController extends Controller
             }
 
         }
-        // global $db;
-        // $result = $db->query("SELECT * FROM `testtable`");
 
-        $list = array( 
-            'things' => array(
-                "thing1",
-                "thing2",
-                "thing3"
-            ),
-            'title' => "Home title"
-        );
-
-        Parent::render("home", $list);
+        Parent::render("upload");
     }
 }
 
