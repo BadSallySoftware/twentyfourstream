@@ -25,10 +25,10 @@ class DrawingController extends Controller
         {
              header('Location: '. "login");
         }
-        
+
         $prizeName = $_POST['prize'];
         $minForEntry = intval($_POST['minForEntry']);
-        $multi = isset($_POST['multipleEntry']);
+        $maxEntries = intval($_POST['maxEntries']);
 
         include BASEPATH . "App\\Models\\donations.php";
         $donModel = new DonationsModel();
@@ -43,11 +43,11 @@ class DrawingController extends Controller
             $donorTotal = intval($donor['donated']);  //TODO: Make sure this isn't a performance/memory issue (Shouldn't be given the volume we're processing)
             if($donorTotal > $minForEntry )
             {
+                $numEntries = intval(floor($donorTotal / $minForEntry));
                 $entry = array(
                     'name' => $donor['name'],
-                    'entries' => ($multi) ? intval(floor($donorTotal / $minForEntry)) : 1
+                    'entries' => ($numEntries > $maxEntries) ? $maxEntries : $numEntries
                 );
-
                 array_push($entries, $entry);
             }
         }

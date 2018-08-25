@@ -9,29 +9,27 @@ include "header.php";
         <h3 class=" text-center blockheader">Contest Drawing</h3>
 
             <div class="blockpadding">
-                <form action="drawing/selectWinner" method="POST">
+                <form action="drawing/selectWinner" method="POST" autocomplete="false">
                     <div class="form-row">
 
 
                             <div class="form-group col-12">
                                 <label  for="prizeField">Prize:</label>
-                                <input class="form-control" type="text" id="prizeField" name="prize"/>
+                                <input autocomplete="prize" class="form-control" type="text" id="prizeField" name="prize"/>
                             </div>
                     </div>
                     <div class="form-row">
 
                             <div class="form-group col-6">
                                 <label  for="minForEntry">Minimum Donation For Entry:</label>
-                                <input class="form-control" type="text" name="minForEntry"/>
+                                <input class="form-control" type="text" name="minForEntry" value="5.00"/>
                             </div>
                             <div class="form-group col-6">
                     
                             </div>
                             <div class="form-group col-6">
-                            <div class="form-check">
-                            <input class="form-check-input align-middle" id="mutliEntry" type="checkbox" name="multipleEntry"/>
-                                <label class="form-check-label" for="mutliEntry">Allow Multiple Entries</label>
-                            </div>
+                            <label  for="minForEntry">Maximum number of Entries:</label>
+                                <input class="form-control" type="text" name="maxEntries" value="100"/>
 
                                 
                             </div>

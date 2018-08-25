@@ -16,17 +16,17 @@
         <div class="col-6">
           <ul class="nav justify-content-start">
             <li class="nav-item">
-              <a class="nav-link active" href="drawing">Drawing</a>
+              <a class="nav-link active" href="<?php echo BASEURL ?>/drawing">Drawing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="upload">CSV Upload</a>
+              <a class="nav-link" href="<?php echo BASEURL ?>/upload">CSV Upload</a>
             </li>
           </ul>
         </div>
         <div class="col-6">
           <ul class="nav justify-content-end">
             <li class="nav-item">
-              <a class="nav-link" href="logout">Logout</a>
+              <a class="nav-link" href="<?php echo BASEURL ?>/logout">Logout</a>
             </li>
           </ul>
         </div>
